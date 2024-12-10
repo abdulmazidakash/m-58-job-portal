@@ -40,8 +40,16 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<div className="navbar-end">
-					<Link to='/register'>Register</Link>
-					<a className="btn">login</a>
+					{
+						user ? <>
+							<button className="btn">log out</button>
+						</> : <>
+							<Link to='/register'>Register</Link>
+							<Link to='/signIn'>
+								<button className="btn">login</button>
+							</Link>
+						</>
+					}
 				</div>
 				</div>
 		</div>
