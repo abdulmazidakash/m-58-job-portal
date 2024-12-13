@@ -3,34 +3,36 @@ import React, { useContext } from 'react';
 import lottieLogin from '../../assets/lottie/login.json'
 import AuthContext from '../../context/AuthContext';
 import SocialLogin from '../shared/SocialLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
 
-	const { signInUser, user } = useContext(AuthContext);
+	const { signInUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log('in signIn page', location)
 
-	const handleSignIn = e =>{
+
+    const handleSignIn = e => {
 		e.preventDefault();
-
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
-
-		console.log(email, password);
-
-		//password validation 
-		//show password validation email and password
-
-		signInUser(email, password)
-			.then(result =>{
-				console.log(result.user);
-			})
-			.catch(error =>{
-				console.log(error);
-			})
+		console.log('Signing in with:', email, password);
 	
-
-	}
+		signInUser(email, password)
+			.then(result => {
+				console.log('sign in successful', result.user);
+				const from = location.state?.from || '/';  // 'from' পাথ নিশ্চিত করা হচ্ছে
+				navigate(from);  // ইউজারকে রিডিরেক্ট করা হচ্ছে
+			})
+			.catch(error => {
+				console.log('Login error:', error);
+				alert('Login failed, please try again.');
+			});
+	};
+	
 	return (
 		<div>
 		<div className="hero bg-base-200 min-h-screen">
