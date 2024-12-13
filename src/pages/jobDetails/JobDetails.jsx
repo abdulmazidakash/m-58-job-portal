@@ -3,11 +3,15 @@ import { useLoaderData } from "react-router-dom";
 
 const JobDetails = () => {
 
-	const {title} = useLoaderData();
+	const {title, company, deadline} = useLoaderData();
+	// console.log(data);
 
 	return (
 		<div>
-			job details for {title}
+			<h2>job details for {title}</h2>
+			<p>apply for: {company}</p>
+			<p>deadline: {deadline}</p>
+			<button className="btn btn-accent">Apply Now</button>
 		</div>
 	);
 };
