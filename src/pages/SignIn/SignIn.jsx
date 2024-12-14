@@ -24,9 +24,11 @@ const SignIn = () => {
 		signInUser(email, password)
 			.then(result => {
 				console.log('sign in successful', result.user);
-				const from = location.state?.from || '/';  // 'from' পাথ নিশ্চিত করা হচ্ছে
-				navigate(from);  // ইউজারকে রিডিরেক্ট করা হচ্ছে
+			 // ইউজারকে রিডিরেক্ট করা হচ্ছে
+			 const from = location.state?.from || '/';  // 'from' পাথ নিশ্চিত করা হচ্ছে
+			 navigate(from); 
 			})
+			
 			.catch(error => {
 				console.log('Login error:', error);
 				alert('Login failed, please try again.');
