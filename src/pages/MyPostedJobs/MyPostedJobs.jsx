@@ -6,9 +6,9 @@ const MyPostedJobs = () => {
     const [jobs, setJobs] = useState([]);
 	console.log(jobs)
     const { user } = useAuth();
-	// https://y-red-iota.vercel.app/jobs?email=jobs@appcrafter.com
+	// http://localhost:5000/jobs?email=jobs@appcrafter.com
     useEffect(() => {
-        fetch(`https://y-red-iota.vercel.app/jobs?email=${user.email}`)
+        fetch(`http://localhost:5000/jobs?email=${user.email}`)
             .then(res => res.json())
             .then(data => setJobs(data))
     }, [user.email])

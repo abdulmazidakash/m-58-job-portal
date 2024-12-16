@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { data } from "react-router-dom";
+import axios from "axios";
 
 
 const MyApplications = () => {
@@ -9,10 +10,15 @@ const MyApplications = () => {
 	const [jobs, setJobs] = useState([]);
 
 	useEffect(()=> {
-		fetch(`https://y-red-iota.vercel.app/job-application?email=${user.email}`)
-			.then(res => res.json())
-			.then(data => setJobs(data))
-	}, [])
+		// fetch(`http://localhost:5000/job-application?email=${user.email}`)
+		// 	.then(res => res.json())
+		// 	.then(data => setJobs(data))
+
+		axios.get(`http://localhost:5000/job-application?email=${user.email}`,
+			{withCredentials: true}
+		)
+			.then(res => console.log(setJobs(res.data)))
+	}, [user.email])
 	return (
 		<div>
 			<h2 className="text-3xl">My Application: {jobs.length}</h2>

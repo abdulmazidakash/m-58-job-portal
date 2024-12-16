@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
@@ -8,6 +8,7 @@ const JobApply = () => {
 	const {id} = useParams()
 	const { user } = useAuth();
 	console.log(id, user);
+	const navigate = useNavigate();
 
 	const submitJobApplication = e =>{
 		e.preventDefault();
@@ -27,7 +28,7 @@ const JobApply = () => {
 			resume
 		}
 
-		fetch('https://y-red-iota.vercel.app/job-applications', {
+		fetch('http://localhost:5000/job-applications', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json'
@@ -46,6 +47,7 @@ const JobApply = () => {
 						timer: 1500
 					})
 				}
+				Navigate('/myApplication')
 			})
 	}
 	return (
@@ -74,7 +76,7 @@ const JobApply = () => {
 						<input type="url" name="resume" placeholder="Resume URL" className="input input-bordered" required />
 						</div>
 						<div className="form-control mt-6">
-						<button className="btn btn-primary">Login</button>
+						<button className="btn btn-primary">Apply Job</button>
 						</div>
 					</form>
 					</div>
