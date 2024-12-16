@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 				element: <PrivateRoute>
 						<JobDetails></JobDetails>
 					</PrivateRoute>,
-				loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+				loader: ({params})=> fetch(`https://y-red-iota.vercel.app/jobs/${params.id}`)
 			},
 			{
 				path: '/jobApply/:id',
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
 				element: <PrivateRoute>
 					<ViewApplications></ViewApplications>
 					</PrivateRoute>,
-				loader: ({params}) => fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`)
+				loader: ({params}) => fetch(`https://y-red-iota.vercel.app/job-applications/jobs/${params.job_id}`)
 			},
 			{
 				path: '/register',

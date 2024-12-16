@@ -7,7 +7,7 @@ const HotJobCard = ({job}) => {
 	const { title, company, company_logo, requirements, description, location, salaryRange, _id} = job;
 	return (
 		<div>
-			<div className="card card-compact bg-gradient-to-t from-rose-300 to-orange-300 flex-grow shadow-xl mt-8">
+			<div className="card card-compact bg-gradient-to-t from-green-200 to-orange-200 flex-grow shadow-xl mt-8">
 				<div className="flex gap-2 m-2">
 				<figure>
 					<img

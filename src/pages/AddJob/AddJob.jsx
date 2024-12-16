@@ -20,7 +20,7 @@ const AddJob = () => {
     newJob.responsibility = newJob.responsibility.split('\n')
     console.log(newJob);
 
-    fetch('http://localhost:5000/jobs', {
+    fetch('https://y-red-iota.vercel.app/jobs', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

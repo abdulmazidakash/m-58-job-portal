@@ -8,7 +8,7 @@ const HotJobs = () => {
 	const [jobs, setJobs] = useState([]);
 	
 	useEffect(()=>{
-		fetch('http://localhost:5000/jobs')
+		fetch('https://y-red-iota.vercel.app/jobs')
 			.then(res => res.json())
 			.then(data =>{
 				setJobs(data);

@@ -31,7 +31,7 @@ const SignIn = () => {
 				 const from = location.state?.from || '/';  // 'from' পাথ নিশ্চিত করা হচ্ছে
 				 navigate(from);
 				const user = { email: email }
-				axios.post('http://localhost:5000/jwt', user, 
+				axios.post('https://y-red-iota.vercel.app/jwt', user, 
 					{
 						withCredentials: true
 					}
